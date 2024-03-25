@@ -15,10 +15,15 @@ import {store} from '../data/store';
 
 
 <template>
-  <div class="text-center my-5 container ">
-    <div class="row row-cols-3 ">
+  <div class="text-center  container  ">
+    <div class="row row-cols-4  p-3">
       <Card v-for=" card in this.store.cardsList"
-        :key="card.id"/>
+        :key="card.id"
+        :name="card.name"
+        :status="card.status"
+        :species="card.species"
+        :image="card.image"
+        />
 
     </div>
   </div>
@@ -27,5 +32,9 @@ import {store} from '../data/store';
 
 
 <style lang="scss" scoped>
+
+.container{
+  margin: 0 auto;
+}
 
 </style>

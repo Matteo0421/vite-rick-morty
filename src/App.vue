@@ -22,7 +22,7 @@ import Main from './components/Main.vue'
           }
         })
         .then(result => {
-          this.store.cardsList = result.data;
+          this.store.cardsList = result.data.results;
           console.log( this.store.cardsList);
 
         })
@@ -46,4 +46,5 @@ import Main from './components/Main.vue'
 
 <style lang="scss" scoped>
 @use './assets/scss/main.scss';
+
 </style>
