@@ -16,10 +16,11 @@ import Main from './components/Main.vue'
     methods:{
       getApi(){
         axios.get(this.store.apiUrl, {
-          params:{
-            count: 20,
-            pages: 0
-          }
+          params:store.queryParamas
+          // {
+          //   count: 20,
+          //   pages: 0
+          // }
         })
         .then(result => {
           this.store.cardsList = result.data.results;
@@ -38,13 +39,14 @@ import Main from './components/Main.vue'
 </script>
 
 <template>
-  <Header />
+  <Header @startSearch="getApi" />
   <Main />
 </template>
 
 
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @use './assets/scss/main.scss';
+
 
 </style>
