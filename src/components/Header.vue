@@ -4,7 +4,8 @@ import {store} from '../data/store'
     data(){
       return{
         store,
-        name: ''
+        name: '',
+        status: ''
       }
     },
     methods:{
@@ -13,9 +14,11 @@ import {store} from '../data/store'
           count: 20,
           pages: 0,
           name: this.name,
+          status: this.status
+
         }
         this.$emit('startSearch')
-      }
+        console.log(this.store.queryParams)      }
     }
     
   }
@@ -27,7 +30,16 @@ import {store} from '../data/store'
     <h1>- Ricky&Morty -</h1>
 
     <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Cerca il personaggio per Nome"  @keyup.enter="startSearch" v.model.trim="name">
+      <input class="p-1 col-3" type="text" id="searchInput" placeholder="Cerca il personaggio per Nome"  @keyup.enter="startSearch" v-model.trim="name">
+
+      <select class="col-1 p-1 m-3 " v-model="status">
+        <option value="">Tutti</option>
+        <option value="alive">Alive</option>
+        <option value="dead">Dead</option>
+      </select>
+
+      <button class="btn btn-warning m-3  " @click="startSearch">Cerca</button>
+
     </div>
   </div>
 </template>

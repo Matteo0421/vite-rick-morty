@@ -16,13 +16,16 @@ import Main from './components/Main.vue'
     methods:{
       getApi(){
         axios.get(this.store.apiUrl, {
-          params:store.queryParamas
+          params:store.queryParams
           // {
           //   count: 20,
           //   pages: 0
           // }
         })
         .then(result => {
+
+          this.store.cardsList = [];
+
           this.store.cardsList = result.data.results;
           console.log( this.store.cardsList);
 
